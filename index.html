@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <title>Javascript ejercicio POO</title>
+</head>
+<body>
+    
+    <h2 class="center">EJERCICIO POO</h2>
+
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Fabricar Vehículo</a></li>
+            <li><a href="#tabs-2">Probar Vehículo</a></li>
+            <li><a href="#tabs-3">Lista de Vehículos</a></li>
+        </ul>
+
+        <div id="tabs-1">
+            <h5 class="center">CONFIGURACIÓN BASE</h5>
+            <div class="container">
+                <label for="wheels">Cantidad de ruedas</label>
+                <select id="wheels" onChange="updateWheels()">
+                    <option value="two">dos ruedas</option>
+                    <option value="four">cuatro ruedas</option>
+                    <option value="five">cinco ruedas</option>
+                </select>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="doors">Cantidad de puertas</label>
+                <select id="doors" onChange="updateDoors()">
+                    <option value="zero">sin puertas</option>
+                    <option value="three">tres puertas</option>
+                    <option value="four">cuatro puertas</option>
+                    <option value="five">cinco puertas</option>
+                </select>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="brand">Marca destino</label>
+                <select id="brand" onChange="updateBrand()">
+                    <option value="fiat">Fiat</option>
+                    <option value="ford">Ford</option>
+                    <option value="bmw">BMW</option>
+                    <option value="audi">Audi</option>
+                </select>
+            </div>
+            <div class="row align-items-center" style="margin-top:2rem;">
+                <div class="col-4">
+                    <h5 class="center">EXRAS</h5>
+                    <div class=container id="extras" >
+                        <label class="container2" id="roof">Techo Corredizo
+                            <input type="checkbox"id="roof" name="extras" value="roof">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container2" id="leather">Asientos Cuero Reforzado
+                            <input type="checkbox"id="leather" name="extras" value="leather">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div> 
+                </div>
+                <div class="col-2 center">
+                    <br>
+                    <button id="clean" onclick="cleanCar()">LIMPIAR</button>  
+                    <br>
+                    <button id="create" onclick="createCar()">FABRICAR</button>             
+                </div>
+                <div class="col-6 center">
+                    <p id="out1"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tabs-2">
+            <h5 class="center"> PRUEBAS DE FUNCIONAMIENTO </h5>
+            <div class="row " style="margin-top:2rem;">
+                <div class="col-6">
+                    <label for="cars">Vehículo a probar</label> <br>
+                    <select id="cars" onChange="selectCar()">
+                    </select>
+                </div>
+                <div class="col-4"> 
+                    <form class="tests">
+                        <label class="container2" id="t1">Encender el motor
+                            <input type="checkbox"id="t1" name="test-item" value="t1">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container2" id="t2">Apagar el motor
+                            <input type="checkbox"id="t2" name="test-item" value="t2">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container2" id="t3">Poner el auto en movimiento
+                            <input type="checkbox"id="t3" name="test-item" value="t3">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container2" id="t4">Frenar el auto
+                            <input type="checkbox"id="t4" name="test-item" value="t4">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container2" id="t5">celerar de 0 a 50 km/h
+                            <input type="checkbox"id="t5" name="test-item" value="t5">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container2" id="t6">Enceder las luces
+                            <input type="checkbox"id="t6" name="test-item" value="t6">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container2" id="t7">Apagar las luces
+                            <input type="checkbox"id="t7" name="test-item" value="t7">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container2" id="t8">Tocar la bocina
+                            <input type="checkbox"id="t8" name="test-item" value="t8">
+                            <span class="checkmark"></span>
+                        </label>
+                    </form>
+                    <br>
+                    <div class="row">
+                        <div class="col-4">
+                            <button id="check-all">Marcar todos</button>
+                        </div>
+                        <div class="col-4">
+                            <button id="uncheck-all">Borrar todos</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <p><button id="getResult" onclick="getResult()">Finalizar Pruebas</button></p> 
+                    <br>
+                    <p id="out2"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tabs-3">
+            <div class="row">
+                <div class="col-6">
+                    <ol id="list"></ol>
+                </div>
+                <div class="col-6">
+                    <div id="targetElement"></div>
+                </div>    
+            </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>   
+    <script src="js/app.js"></script>
+</body>
+</html>
