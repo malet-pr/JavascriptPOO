@@ -1,2 +1,6 @@
-# JavascriptPOO
-Excercise in Javascript OOP
+# Javascript OOP excercise
+
+
+See attached pdf
+
+Vea el pdf adjunto
